@@ -2,7 +2,7 @@
 
 Spin up GitHub Copilot in an isolated git worktree with a single command.
 
-`cwt` creates a fresh worktree under `.github/worktrees/` with a memorable random name (e.g., `alpine-cactus-horizon`) and drops you straight into a `gh copilot` session inside it.
+`cwt` creates a fresh worktree under `.github/worktrees/` named whatever you pass it, or a memorable random name (e.g., `alpine-cactus-horizon`), and drops you straight into a `copilot` session inside it.
 
 ## Install
 
@@ -20,22 +20,23 @@ CWT_INSTALL_DIR=/usr/local/bin sh -c "$(curl -fsSL https://raw.githubusercontent
 
 ```sh
 cd your-repo
-cwt
+cwt                     # random name, e.g. alpine-cactus-horizon
+cwt fun-little-feature  # or pick your own
 ```
 
 This will:
 
-1. Generate a name from 3 random dictionary words
+1. Use the given name, or generate one from 3 random dictionary words
 2. Create a git worktree at `.github/worktrees/<name>` with a matching branch
-3. Launch `gh copilot` inside it
+3. Launch `copilot` inside it
 
 Each invocation creates a new, isolated worktree — your main working tree stays untouched.
 
 ## Requirements
 
 - [git](https://git-scm.com/)
-- [gh](https://cli.github.com/) (GitHub CLI) with Copilot access
-- A system dictionary file — `cwt` auto-detects these locations:
+- [GitHub Copilot CLI](https://github.com/github/copilot-cli) (`copilot`)
+- A system dictionary file (only needed for random names) — `cwt` auto-detects these locations:
 
 | Platform | Dictionary path | Install command |
 |---|---|---|
