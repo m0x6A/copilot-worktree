@@ -1,5 +1,5 @@
-#!/usr/bin/env bash
-set -euo pipefail
+#!/bin/sh
+set -eu
 
 INSTALL_DIR="${CWT_INSTALL_DIR:-$HOME/.local/bin}"
 
